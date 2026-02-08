@@ -16,7 +16,7 @@ Writing changelogs eats hours every month. Most devs skip them → users ignore 
 
 **What I Built:**
 
-Changelog Automator - a GitHub App that uses Claude AI to auto-generate changelogs from your commits. Push to main → CHANGELOG.md updates automatically.
+Changelog Automator - a GitHub App that uses Groq AI to auto-generate changelogs from your commits. Push to main → CHANGELOG.md updates automatically.
 
 **How It Works:**
 
@@ -28,7 +28,7 @@ Changelog Automator - a GitHub App that uses Claude AI to auto-generate changelo
 
 **Tech Stack:**
 - Next.js 14 + TypeScript
-- Anthropic Claude for AI
+- Groq for AI
 - Vercel Serverless
 - Built in 4 weeks
 
@@ -72,7 +72,7 @@ Enter Changelog Automator:
 
 That's it. Zero manual work.
 
-Built with Claude + Next.js + Vercel
+Built with Groq + Next.js + Vercel
 
 ### Tweet 4 (Features)
 ✨ AI-powered commit parsing
@@ -104,7 +104,7 @@ Every developer knows the pain:
 
 You ship an amazing feature. Users want to know what's new. But writing release notes takes hours you'd rather spend coding.
 
-So I built Changelog Automator - a GitHub App that uses Claude AI to auto-generate changelogs from your commits.
+So I built Changelog Automator - a GitHub App that uses Groq AI to auto-generate changelogs from your commits.
 
 **How it works:**
 → Install the GitHub App (2 minutes)
@@ -119,7 +119,7 @@ So I built Changelog Automator - a GitHub App that uses Claude AI to auto-genera
 
 **Built with:**
 - Next.js 14
-- Anthropic Claude
+- Groq
 - Vercel Serverless
 - TypeScript
 
@@ -148,7 +148,7 @@ Stop writing release notes manually
 Writing changelogs eats hours every month. Most devs skip them → users ignore repos without changelogs → fewer stars/adoption.
 
 **The Solution:**
-Changelog Automator is a GitHub App that uses Claude AI to auto-generate changelogs from your commits. Push to main → CHANGELOG.md updates automatically.
+Changelog Automator is a GitHub App that uses Groq AI to auto-generate changelogs from your commits. Push to main → CHANGELOG.md updates automatically.
 
 **Key Features:**
 🤖 AI-powered commit parsing and summarization
@@ -164,7 +164,7 @@ Changelog Automator is a GitHub App that uses Claude AI to auto-generate changel
 
 **Tech Stack:**
 - Next.js 14
-- Anthropic Claude
+- Groq
 - Vercel Serverless
 
 Try it free → https://yourapp.vercel.app
@@ -179,7 +179,7 @@ Built this in 4 weeks following a strict MVP approach. No dashboard, no complex 
 
 **Current status:**
 - 100% functional webhook system
-- AI-generated changelogs with Claude
+- AI-generated changelogs with Groq
 - Free tier: 50 commits/month
 - Already dogfooding on 3 repos
 

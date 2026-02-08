@@ -1,8 +1,9 @@
 /**
- * LLM Wrapper - Interface with Anthropic Claude for changelog generation
+ * LLM Wrapper - Interface with Groq API for changelog generation
+ * Uses Groq's fast inference API with Llama models
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import Groq from 'groq-sdk';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ParsedCommit } from './parser';
@@ -14,12 +15,12 @@ export interface ChangelogResult {
 }
 
 export class LLMClient {
-  private anthropic: Anthropic;
+  private groq: Groq;
   private changelogPrompt: string;
   private tweetPrompt: string;
   
   constructor(apiKey: string) {
-    this.anthropic = new Anthropic({ apiKey });
+    this.groq = new Groq({ apiKey });
     
     // Load prompts
     const promptsDir = path.join(process.cwd(), 'prompts');
@@ -63,17 +64,20 @@ export class LLMClient {
         };
       }
       
-      // Prepare the input for Claude
+      // Prepare the input for Groq
       const today = new Date().toISOString().split('T')[0];
       const userMessage = `Date: ${today}\n\nCommits:\n${JSON.stringify(significantCommits, null, 2)}`;
       
-      // Call Claude API
-      const response = await this.anthropic.messages.create({
-        model: 'claude-sonnet-4-20250514',
+      // Call Groq API using chat completions
+      const response = await this.groq.chat.completions.create({
+        model: 'llama-3.3-70b-versatile',
         max_tokens: 2000,
         temperature: 0.3,
-        system: this.changelogPrompt,
         messages: [
+          {
+            role: 'system',
+            content: this.changelogPrompt
+          },
           {
             role: 'user',
             content: userMessage
@@ -82,9 +86,7 @@ export class LLMClient {
       });
       
       // Extract markdown from response
-      let markdown = response.content[0].type === 'text' 
-        ? response.content[0].text 
-        : '';
+      let markdown = response.choices[0]?.message?.content || '';
       
       // Clean up the output
       markdown = this.cleanMarkdown(markdown);
@@ -123,12 +125,15 @@ export class LLMClient {
       
       const userMessage = `Commits: ${JSON.stringify(commitMessages)}\n\nChangelog URL: ${changelogUrl}`;
       
-      const response = await this.anthropic.messages.create({
-        model: 'claude-sonnet-4-20250514',
+      const response = await this.groq.chat.completions.create({
+        model: 'llama-3.3-70b-versatile',
         max_tokens: 300,
         temperature: 0.5,
-        system: this.tweetPrompt,
         messages: [
+          {
+            role: 'system',
+            content: this.tweetPrompt
+          },
           {
             role: 'user',
             content: userMessage
@@ -136,9 +141,7 @@ export class LLMClient {
         ]
       });
       
-      let tweet = response.content[0].type === 'text' 
-        ? response.content[0].text 
-        : '';
+      let tweet = response.choices[0]?.message?.content || '';
       
       // Clean up tweet
       tweet = tweet.trim();

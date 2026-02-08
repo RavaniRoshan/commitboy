@@ -4,11 +4,11 @@ Auto-generate CHANGELOG.md from your commits. Push to main → changelog updates
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Built with](https://img.shields.io/badge/built%20with-Next.js%2014-black.svg)
-![AI Powered](https://img.shields.io/badge/AI-Claude-purple.svg)
+![AI Powered](https://img.shields.io/badge/AI-Groq-green.svg)
 
 ## 🚀 What is this?
 
-Changelog Automator is a GitHub App that uses AI (Claude by Anthropic) to automatically generate and update your CHANGELOG.md file whenever you push to your main branch.
+Changelog Automator is a GitHub App that uses AI (Groq's fast LLM inference) to automatically generate and update your CHANGELOG.md file whenever you push to your main branch.
 
 **Key Features:**
 - 🤖 AI-powered commit parsing and summarization
@@ -63,7 +63,7 @@ GitHub Push Event
        ↓
 Webhook Receiver (Vercel)
        ↓
-AI Parses Commits (Claude)
+AI Parses Commits (Groq)
        ↓
 Generates Changelog
        ↓
@@ -75,7 +75,7 @@ Auto-commits to Repo
 - **Frontend**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS + shadcn/ui
 - **Backend**: Vercel Serverless Functions
-- **AI**: Anthropic Claude Sonnet 4
+- **AI**: Groq (Llama 3.3 70B Versatile)
 - **Storage**: Vercel KV (Redis)
 - **Payments**: Stripe (Phase 8)
 
@@ -104,7 +104,7 @@ npm run dev
 ```env
 # Required
 GITHUB_TOKEN=ghp_your_github_token
-ANTHROPIC_API_KEY=sk-ant-your_anthropic_key
+GROQ_API_KEY=gsk_your_groq_api_key
 GITHUB_WEBHOOK_SECRET=your_webhook_secret
 
 # Optional (for Pro features)
@@ -185,7 +185,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Built with [Next.js](https://nextjs.org)
-- AI powered by [Anthropic Claude](https://anthropic.com)
+- AI powered by [Groq](https://groq.com)
 - Hosted on [Vercel](https://vercel.com)
 
 ## 📞 Support

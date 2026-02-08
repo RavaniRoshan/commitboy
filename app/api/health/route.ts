@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Octokit } from '@octokit/rest';
-import Anthropic from '@anthropic-ai/sdk';
+import Groq from 'groq-sdk';
 
 /**
  * Health Check Endpoint
@@ -17,16 +17,16 @@ export async function GET() {
 
   const startTime = Date.now();
 
-  // Check Anthropic/Claude API
+  // Check Groq API
   try {
-    const anthropicStart = Date.now();
-    const anthropic = new Anthropic({
-      apiKey: process.env.ANTHROPIC_API_KEY || '',
+    const groqStart = Date.now();
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY || '',
     });
 
     // Simple test call
-    await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
+    await groq.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
       max_tokens: 10,
       temperature: 0,
       messages: [{ role: 'user', content: 'Hi' }],
@@ -34,7 +34,7 @@ export async function GET() {
 
     checks.llm = {
       status: 'ok',
-      response_time: Date.now() - anthropicStart,
+      response_time: Date.now() - groqStart,
     };
   } catch (error) {
     checks.llm = {
