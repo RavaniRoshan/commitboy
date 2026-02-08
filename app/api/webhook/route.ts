@@ -5,6 +5,9 @@ import { GitHubClient } from '@/lib/github';
 import { LLMClient } from '@/lib/llm';
 import { checkLimit, incrementCommits } from '@/lib/limiter';
 
+// Fallback URL for when env variable is not set
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://commitboy.vercel.app';
+
 /**
  * GitHub Webhook Handler
  * Receives push events and auto-generates changelogs
@@ -97,7 +100,7 @@ Upgrade to Pro for:
 - Tweet-ready summaries
 - Priority support
 
-[Upgrade now →](${process.env.NEXT_PUBLIC_APP_URL}/pricing?installation_id=${owner}:${repo})`,
+[Upgrade now →](${APP_URL}/pricing?installation_id=${owner}:${repo})`,
           ['automation', 'rate-limit']
         );
       }
@@ -108,7 +111,7 @@ Upgrade to Pro for:
           plan: limitCheck.plan,
           limit: limitCheck.limit,
           current: limitCheck.current,
-          upgrade_url: `${process.env.NEXT_PUBLIC_APP_URL}/pricing`
+          upgrade_url: `${APP_URL}/pricing`
         },
         { status: 402 }
       );
