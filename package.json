@@ -1,0 +1,48 @@
+{
+  "name": "changelog-automator",
+  "version": "1.0.0",
+  "description": "Auto-generate CHANGELOG.md from your commits using AI",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "tsx scripts/test-local.ts",
+    "build": "tsc",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "changelog",
+    "github",
+    "automation",
+    "ai",
+    "claude"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "@octokit/rest": "^22.0.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@vercel/analytics": "^1.6.1",
+    "@vercel/kv": "^3.0.0",
+    "dotenv": "^17.2.4",
+    "lucide-react": "^0.563.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
