@@ -1,5 +1,8 @@
 # Changelog Automator
 
+<img width="1748" height="850" alt="image" src="https://github.com/user-attachments/assets/a263438c-b7c1-4426-ac21-cc1ac2d17853" />
+
+
 Auto-generate CHANGELOG.md from your commits. Push to main → changelog updates. No manual work.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
