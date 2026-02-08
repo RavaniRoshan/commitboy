@@ -11,7 +11,7 @@ export default function InstallButton({
   size = 'md', 
   variant = 'primary' 
 }: InstallButtonProps) {
-  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'changelog-automator';
+  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'commitboy';
   const installUrl = `https://github.com/apps/${appName}/installations/new`;
 
   const sizeClasses = {

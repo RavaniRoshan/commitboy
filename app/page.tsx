@@ -6,7 +6,7 @@ import InstallButton from '@/components/install-button';
 import { Github, Twitter, Mail } from 'lucide-react';
 
 export default function Home() {
-  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'changelog-automator';
+  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'commitboy';
 
   return (
     <main className="min-h-screen bg-gray-900">

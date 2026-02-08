@@ -3,7 +3,7 @@
 import { ArrowRight, Sparkles, Github } from 'lucide-react';
 
 export default function Hero() {
-  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'changelog-automator';
+  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'commitboy';
   const installUrl = `https://github.com/apps/${appName}/installations/new`;
 
   return (

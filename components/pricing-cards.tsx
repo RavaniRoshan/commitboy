@@ -40,7 +40,7 @@ const plans = [
 ];
 
 export default function PricingCards() {
-  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'changelog-automator';
+  const appName = process.env.NEXT_PUBLIC_GITHUB_APP_NAME || 'commitboy';
 
   return (
     <section id="pricing" className="py-24 bg-gray-800">
