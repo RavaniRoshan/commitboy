@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Loader2, Github } from 'lucide-react';
 
-export default function InstallPage() {
+function InstallPageContent() {
   const [isProcessing, setIsProcessing] = useState(true);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -79,5 +80,25 @@ export default function InstallPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function InstallPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+        <div className="max-w-md w-full text-center">
+          <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-blue-600/20 flex items-center justify-center">
+              <Loader2 className="w-10 h-10 text-blue-400 animate-spin" />
+            </div>
+            <h1 className="text-2xl font-bold text-white mb-2">Loading...</h1>
+            <p className="text-gray-400">Please wait while we set things up.</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <InstallPageContent />
+    </Suspense>
   );
 }

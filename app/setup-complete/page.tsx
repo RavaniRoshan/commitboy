@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Check, Loader2, AlertCircle } from 'lucide-react';
 
-export default function SetupCompletePage() {
+function SetupCompleteContent() {
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const searchParams = useSearchParams();
   
@@ -94,5 +95,25 @@ export default function SetupCompletePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SetupCompletePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+        <div className="max-w-md w-full">
+          <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-600/20 flex items-center justify-center">
+              <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
+            </div>
+            <h1 className="text-2xl font-bold text-white mb-2">Loading...</h1>
+            <p className="text-gray-400">Please wait while we complete the setup.</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <SetupCompleteContent />
+    </Suspense>
   );
 }

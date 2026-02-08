@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
 
-export default function UpgradeSuccessPage() {
+function UpgradeSuccessContent() {
   const [isLoading, setIsLoading] = useState(true);
   const searchParams = useSearchParams();
   
@@ -99,5 +100,25 @@ export default function UpgradeSuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function UpgradeSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+        <div className="max-w-md w-full">
+          <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-8 border border-blue-500/30 text-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-600/20 flex items-center justify-center animate-pulse">
+              <Sparkles className="w-8 h-8 text-blue-400" />
+            </div>
+            <h1 className="text-2xl font-bold text-white mb-2">Loading...</h1>
+            <p className="text-gray-400">Please wait while we verify your upgrade.</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <UpgradeSuccessContent />
+    </Suspense>
   );
 }
