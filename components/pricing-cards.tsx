@@ -33,7 +33,7 @@ const plans = [
       'Custom templates (coming soon)',
     ],
     cta: 'Upgrade to Pro',
-    ctaLink: '/api/stripe-checkout',
+    ctaLink: '/install?plan=pro',
     highlighted: true,
     badge: 'Most Popular',
   },

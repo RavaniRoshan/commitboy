@@ -10,11 +10,12 @@ function UpgradeSuccessContent() {
   const searchParams = useSearchParams();
   
   useEffect(() => {
-    const sessionId = searchParams.get('session_id');
+    const paymentId = searchParams.get('payment_id');
+    const orderId = searchParams.get('order_id');
     
-    if (sessionId) {
-      // Verify the session and upgrade the installation
-      console.log('Upgrading with session:', sessionId);
+    if (paymentId || orderId) {
+      // Verify the payment and upgrade the installation
+      console.log('Upgrading with payment:', paymentId, 'order:', orderId);
       
       // Simulate verification
       setTimeout(() => {

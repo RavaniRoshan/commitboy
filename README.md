@@ -80,7 +80,7 @@ Auto-commits to Repo
 - **Backend**: Vercel Serverless Functions
 - **AI**: Groq (Llama 3.3 70B Versatile)
 - **Storage**: Vercel KV (Redis)
-- **Payments**: Stripe (Phase 8)
+- **Payments**: Razorpay
 
 ## 📦 Installation (Self-Hosted)
 
@@ -111,7 +111,9 @@ GROQ_API_KEY=gsk_your_groq_api_key
 GITHUB_WEBHOOK_SECRET=your_webhook_secret
 
 # Optional (for Pro features)
-STRIPE_SECRET_KEY=sk_test_your_stripe_key
+RAZORPAY_KEY_ID=rzp_test_your_key_id
+RAZORPAY_KEY_SECRET=your_key_secret
+RAZORPAY_WEBHOOK_SECRET=your_webhook_secret
 KV_REST_API_URL=your_vercel_kv_url
 KV_REST_API_TOKEN=your_vercel_kv_token
 ```
@@ -149,7 +151,8 @@ npm run test:local
 - `GET /api/health` - Health check
 - `POST /api/webhook` - GitHub webhook receiver
 - `POST /api/github-install` - Save installation data
-- `POST /api/stripe-checkout` - Create checkout session (Pro)
+- `POST /api/razorpay-checkout` - Create Razorpay order (Pro)
+- `POST /api/razorpay-webhook` - Handle Razorpay payment events
 
 ## 🚨 Troubleshooting
 

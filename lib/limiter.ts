@@ -17,7 +17,7 @@ interface InstallationData {
   installed_at: string;
   plan: 'free' | 'pro';
   commits_this_month: number;
-  stripe_customer_id?: string;
+  razorpay_customer_id?: string;
 }
 
 /**

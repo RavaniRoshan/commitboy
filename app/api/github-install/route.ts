@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       installed_at: new Date().toISOString(),
       plan: 'free',
       commits_this_month: 0,
-      stripe_customer_id: null,
+      razorpay_customer_id: null,
     };
 
     console.log('Saving installation:', installationData);
