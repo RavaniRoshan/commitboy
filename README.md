@@ -1,4 +1,4 @@
-# Changelog Automator
+# Changelog Automator (NOW- Commitboy)
 
 <img width="1750" height="857" alt="image" src="https://github.com/user-attachments/assets/32f610a8-a823-4af5-9bae-a60ccdba705a" />
 
